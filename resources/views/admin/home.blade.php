@@ -6,11 +6,14 @@
 </head>
 
 <body>
-  <div class="container-scroller">
+  <div>
     @include('admin.header')
     @include('admin.sidebar')
-    @include('admin.body')
-    @include('admin.script')
+    <div class="container-scroller">
+      @include('admin.body')
+      @include('admin.script')
+    </div>
+  </div>
 
 </body>
 

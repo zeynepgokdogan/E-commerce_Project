@@ -8,7 +8,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <link rel="shortcut icon" href="/user/images/favicon.png" type="">
-<title>Famms - Fashion HTML Template</title>
+<title></title>
 <!-- bootstrap core css -->
 <link rel="stylesheet" type="text/css" href="/user/css/bootstrap.css" />
 <!-- font awesome style -->
