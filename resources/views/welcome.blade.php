@@ -21,6 +21,7 @@
             align-items: center;
             min-height: 100vh;
             background: #f7fafc;
+            overflow: hidden; /* Ensure no overflow issues */
         }
 
         .div-container {
@@ -30,9 +31,12 @@
             background-image: url('/images/background.png');
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat; /* Ensure image does not repeat */
             width: 100%;
+            height: 100vh; /* Full viewport height */
             padding: 20px;
             border-radius: 10px;
+            box-sizing: border-box; /* Include padding in width and height calculations */
         }
 
         .div-1,
@@ -88,9 +92,23 @@
                 padding: 40px;
             }
 
-            .div-1,
+            .div-1 {
+                width: 60%; /* Adjust width for larger screens */
+            }
+
             .div-2 {
-                width: 45%;
+                width: 70%; /* Adjust width for larger screens */
+            }
+        }
+
+        /* Mobile view adjustments */
+        @media (max-width: 767px) {
+            .div-1 {
+                width: 50%; /* Smaller width on mobile */
+            }
+
+            .div-2 {
+                width: 100%; /* Full width on mobile */
             }
         }
     </style>
