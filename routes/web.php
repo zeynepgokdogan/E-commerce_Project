@@ -24,4 +24,6 @@ Route::get('/redirect', [HomeController::class, 'redirect'])->name('redirect');
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/category', [AdminController::class, 'category'])->name('admin.category');
+    Route::post('/addcategory', [AdminController::class, 'add_category'])->name('add_catogory');
+
 });
