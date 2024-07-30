@@ -3,21 +3,21 @@
 
 <head>
    <link rel="stylesheet" type="text/css" href="{{ asset('user/css/style.css') }}" />
-   @include('user.usercss')
+   @include('user.util.usercss')
 </head>
 
 <body>
    <div class="hero_area">
-      @include('user.header')
-      @include('user.slider')
-      @include('user.why')
-      @include('user.new_arival')
-      @include('user.product')
-      @include('user.subscribe')
-      @include('user.client')
+      @include('user.util.header')
+      @include('user.util.slider')
+      @include('user.util.why')
+      @include('user.util.new_arival')
+      @include('user.util.product')
+      @include('user.util.subscribe')
+      @include('user.util.client')
    </div>
 
-   @include('user.footer')
+   @include('user.util.footer')
 
    <!-- jQery -->
    <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>

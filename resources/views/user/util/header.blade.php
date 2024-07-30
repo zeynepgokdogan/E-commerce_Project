@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Page Title</title>
-    <link rel="stylesheet" href="path/to/your/css/style.css"> <!-- Link to your external CSS -->
+    <link rel="stylesheet" href="/user/css/style.css"> 
     <style>
         .navbar-brand img {
             height: 50px;
