@@ -36,8 +36,10 @@
                             <tr>
                                 <td class="table-cell">{{$mydata->category_name}}</td>
                                 <td class="table-cell">
-                                    <a class="btn btn-danger"
-                                        href="{{ route('delete_category', $mydata->id) }}"
+                                    <a class="btn btn-danger" href="{{ route('delete_category', $mydata->id) }}"
+                                        style="background-color:#ea3c42; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px;"
+                                        onmouseover="this.style.backgroundColor='#c62828';"
+                                        onmouseout="this.style.backgroundColor='#ea3c42';"
                                         onclick="return confirm('Are you sure delete this category?')">Delete</a>
                                 </td>
                             </tr>

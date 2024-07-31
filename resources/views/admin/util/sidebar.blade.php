@@ -48,14 +48,6 @@
         </a>
       </li>
       <li class="nav-item menu-items">
-        <a class="nav-link" href="{{ route('admin.category') }}">
-          <span class="menu-icon">
-            <i class="mdi mdi-playlist-play"></i>
-          </span>
-          <span class="menu-title">Category</span>
-        </a>
-      </li>
-      <li class="nav-item menu-items">
         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <span class="menu-icon">
             <i class="mdi mdi-laptop"></i>
@@ -65,11 +57,20 @@
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="">Add Products</a></li>
-            <li class="nav-item"> <a class="nav-link" href="">Show Products</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('admin.view_product1') }}">Add Products</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('admin.view_product2') }}">Show Products</a></li>
           </ul>
         </div>
       </li>
+      <li class="nav-item menu-items">
+        <a class="nav-link" href="{{ route('admin.category') }}">
+          <span class="menu-icon">
+            <i class="mdi mdi-playlist-play"></i>
+          </span>
+          <span class="menu-title">Category</span>
+        </a>
+      </li>
+
     </ul>
   </nav>
 </body>
