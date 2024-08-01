@@ -12,4 +12,12 @@ class UserController extends Controller
         $data = Products::all();
         return view('user.pages.products',compact('data'));
     }
+
+    public function productDetailPage($id)
+    {
+        $data = Products::find($id);
+        return view('user.pages.product_detail',compact('data'));
+    }
+
+
 }
