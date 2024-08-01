@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,7 +18,8 @@ class HomeController extends Controller
             if ($usertype == 'admin') {
                 return view('admin.pages.home');
             } else {
-                return view('user.pages.home');
+                $products = Products::paginate(3);
+                return view('user.pages.home', compact('products'));
             }
         } else {
             return redirect()->route('login'); 

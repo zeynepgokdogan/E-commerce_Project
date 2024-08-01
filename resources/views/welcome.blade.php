@@ -21,7 +21,7 @@
             align-items: center;
             min-height: 100vh;
             background: #f7fafc;
-            overflow: hidden; /* Ensure no overflow issues */
+            overflow: hidden;
         }
 
         .div-container {
@@ -31,12 +31,12 @@
             background-image: url('/images/background.png');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat; /* Ensure image does not repeat */
+            background-repeat: no-repeat;
             width: 100%;
-            height: 100vh; /* Full viewport height */
+            height: 100vh;
             padding: 20px;
             border-radius: 10px;
-            box-sizing: border-box; /* Include padding in width and height calculations */
+            box-sizing: border-box;
         }
 
         .div-1,
@@ -44,6 +44,7 @@
             width: 100%;
             text-align: center;
             padding: 30px;
+            align-items: center;
         }
 
         .div-1 img,
@@ -52,6 +53,13 @@
             height: auto;
             display: block;
             margin: 0 auto;
+        }
+
+        .auth-links-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
         .auth-links {
@@ -85,6 +93,10 @@
             background-color: #cbd5e0;
         }
 
+        .logo-container {
+            width: 50%;
+        }
+
         @media (min-width: 768px) {
             .div-container {
                 flex-direction: row;
@@ -93,22 +105,21 @@
             }
 
             .div-1 {
-                width: 60%; /* Adjust width for larger screens */
+                width: 60%;
             }
 
             .div-2 {
-                width: 70%; /* Adjust width for larger screens */
+                width: 70%;
             }
         }
 
-        /* Mobile view adjustments */
         @media (max-width: 767px) {
             .div-1 {
-                width: 50%; /* Smaller width on mobile */
+                width: 50%;
             }
 
             .div-2 {
-                width: 100%; /* Full width on mobile */
+                width: 100%;
             }
         }
     </style>
@@ -127,14 +138,17 @@
             <a class="navbar-brand" href="index.html"><img src="/images/welcome_image.png" alt="Welcome Image" /></a>
         </div>
         <div class="div-2">
-            <div>
-                <a class="navbar-brand" href="index.html"><img src="/user/images/logo.png" alt="Logo" /></a>
-            </div>
-            <div class="auth-links">
-                <a href="{{ route('login') }}">Log in</a>
-                @if (Route::has('register'))
-                <a href="{{ route('register') }}">Register</a>
-                @endif
+
+            <div class="auth-links-container">
+                <div class="logo-container">
+                    <a class="navbar-brand" href="index.html"><img src="/user/images/logo.png" alt="Logo" /></a>
+                </div>
+                <div class="auth-links">
+                    <a href="{{ route('login') }}">Log in</a>
+                    @if (Route::has('register'))
+                    <a href="{{ route('register') }}">Register</a>
+                    @endif
+                </div>
             </div>
         </div>
     </div>
