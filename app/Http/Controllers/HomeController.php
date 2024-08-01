@@ -18,8 +18,8 @@ class HomeController extends Controller
             if ($usertype == 'admin') {
                 return view('admin.pages.home');
             } else {
-                $products = Products::paginate(3);
-                return view('user.pages.home', compact('products'));
+                $data = Products::paginate(3);
+                return view('user.pages.home', compact('data'));
             }
         } else {
             return redirect()->route('login'); 

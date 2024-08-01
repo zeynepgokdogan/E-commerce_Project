@@ -9,12 +9,9 @@
 <body>
    <div class="hero_area">
       @include('user.util.header')
-      @include('user.util.slider')
-      @include('user.util.why')
-      @include('user.util.new_arival')
-      @include('user.util.product', ['data' => $data, 'page' => 'home'])
-      @include('user.util.subscribe')
-      @include('user.util.client')
+
+      @include('user.util.product')
+
    </div>
 
    @include('user.util.footer')

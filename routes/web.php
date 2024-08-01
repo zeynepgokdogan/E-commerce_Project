@@ -38,7 +38,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::post('/updateproduct/{id}', [AdminController::class, 'update_product'])->name('update_product');
 });
 
-Route::middleware(['auth', 'user'])->prefix('user')->group(function () {
 
-    Route::get('/home', [UserController::class, 'home'])->name('user.home');
+
+Route::middleware(['auth', 'user'])->prefix('user')->group(function () {
+    Route::get('/products', [UserController::class, 'productsPage'])->name('user.productsPage');
+
 });

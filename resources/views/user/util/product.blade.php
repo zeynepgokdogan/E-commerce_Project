@@ -16,17 +16,17 @@
                 </h2>
             </div>
             <div class="row">
-                @foreach ($products as $myproduct)
+                @foreach ($data as $myproduct)
                 <div class="col-sm-6 col-md-4 col-lg-4">
                     <div class="box">
                         <div class="option_container">
                             <div class="options">
                                 <a href="#" class="option1">Add To Cart</a>
-                                <a href="#" class="option2">Buy Now</a>
+                                <a href="" class="option2">View Details</a>
                             </div>
                         </div>
                         <div class="img-box">
-                            <img src="product/{{$myproduct->image}}" alt="{{ $myproduct->title }}">
+                            <img src="/product/{{$myproduct->image}}" alt="{{ $myproduct->title }}">
                         </div>
                         <div class="detail-box">
                             <h5 style="font-size: 19px;">{{$myproduct->title}}</h5>
@@ -43,9 +43,11 @@
                 </div>
                 @endforeach
             </div>
+            @if (isset($page) && $page == 'home')
             <div class="pagination">
-                {!! $products->links() !!}
+                {!! $data->links() !!}
             </div>
+            @endif
         </div>
     </section>
 </body>
