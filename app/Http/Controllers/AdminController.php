@@ -52,7 +52,7 @@ class AdminController extends Controller
             'description' => 'nullable|string',
             'price' => 'required|numeric',
             'discount' => 'nullable|numeric',
-            'quantity' => 'nullable|integer',
+            'quantity' => 'required|nullable|integer',
             'category' => 'required|exists:categories,id',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Section</title>
+    <link rel="stylesheet" href="path/to/your/style.css">
 </head>
 
 <body>
@@ -12,7 +13,7 @@
         <div class="container">
             <div class="heading_container heading_center">
                 <h2>
-                    Our <span>products</span>
+                    Our <span>Products</span>
                 </h2>
             </div>
             <div class="row">
@@ -21,9 +22,11 @@
                     <div class="box">
                         <div class="option_container">
                             <div class="options">
-                                
-                                <a href="{{ route('add_cart', ['id' => $myproduct->id]) }}" class="option1">Add
-                                    To Cart</a>
+                                <form action="{{ route('add_cart', ['id' => $myproduct->id]) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="option1">Add To Cart</button>
+                                </form>
+
                                 <a href="{{ route('user.detailPage', ['id' => $myproduct->id]) }}" class="option2">View
                                     Details</a>
                             </div>
@@ -36,10 +39,13 @@
                         </div>
                         <div class="detail-box">
                             @if ($myproduct->discount_price)
-                            <h6 style="color: #14ABBC; font-size: 15px;">{{$myproduct->discount_price}}</h6>
-                            <h6 style="color: #EA3C42; font-size: 17px;">{{$myproduct->price}}</h6>
+                            <h6 style="color: #14ABBC; font-size: 15px;">{{ number_format($myproduct->discount_price, 0,
+                                ',', '.') }}%</h6>
+                            <h6 style="color: #EA3C42; font-size: 17px;">{{ number_format($myproduct->price, 0, ',',
+                                '.') }}</h6>
                             @else
-                            <h6 style="color: #EA3C42; font-size: 17px;">{{$myproduct->price}}</h6>
+                            <h6 style="color: #EA3C42; font-size: 17px;">{{ number_format($myproduct->price, 0, ',',
+                                '.') }}</h6>
                             @endif
                         </div>
                     </div>

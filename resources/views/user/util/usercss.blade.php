@@ -141,7 +141,7 @@
         border: 1px solid #ddd;
     }
 
-    /* product page */
+    /* product detail page */
 
     .detail-container {
         display: flex;
@@ -178,10 +178,19 @@
         border-bottom: none;
     }
 
-    .img-deg img {
+    .img-deg {
         margin-left: 30px;
-        width: 450px;
-        height: 650px;
+        width: 100%;
+        /* Ensure the container uses full width */
+        max-width: 450px;
+        /* Set a maximum width for larger screens */
+    }
+
+    .img-deg img {
+        width: 100%;
+        /* Maintain aspect ratio */
+        height: auto;
+        /* Maintain aspect ratio */
         border-radius: 10px;
     }
 
@@ -244,6 +253,89 @@
     .add-to-cart i {
         margin-right: 8px;
         font-size: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .detail-container {
+            flex-direction: column;
+            margin: 20px;
+        }
+
+        .img-deg {
+            margin: 10px 0;
+            max-width: 70%;
+            /* Adjust size for medium screens */
+        }
+
+        .title {
+            font-size: 20px;
+            padding-right: 20px;
+        }
+
+        .description {
+            font-size: 18px;
+        }
+
+        .price {
+            font-size: 20px;
+        }
+
+        .stars {
+            font-size: 18px;
+        }
+
+        .favorite-btn {
+            top: 5px;
+            right: 5px;
+            font-size: 25px;
+        }
+
+        .add-to-cart {
+            font-size: 16px;
+            padding: 8px;
+        }
+
+        .add-to-cart i {
+            font-size: 18px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .img-deg {
+            margin: 5px 0;
+            max-width: 50%;
+            /* Further reduce size for small screens */
+        }
+
+        .title {
+            font-size: 18px;
+            padding-right: 15px;
+        }
+
+        .description {
+            font-size: 16px;
+        }
+
+        .price {
+            font-size: 18px;
+        }
+
+        .stars {
+            font-size: 16px;
+        }
+
+        .favorite-btn {
+            font-size: 20px;
+        }
+
+        .add-to-cart {
+            font-size: 14px;
+            padding: 6px;
+        }
+
+        .add-to-cart i {
+            font-size: 16px;
+        }
     }
 </style>
 

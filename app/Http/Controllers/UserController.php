@@ -21,36 +21,31 @@ class UserController extends Controller
         $data = Products::find($id);
         return view('user.pages.product_detail', compact('data'));
     }
-
     public function add_cart(Request $request, $id)
     {
-        if (Auth::id()) {
-            $user = Auth::user();
+        if (Auth::check()) {
             $product = Products::find($id);
 
             if (!$product) {
-                return redirect()->back()->with('error', 'Product not found');
+                return redirect()->back()->with('error', 'Product not found.');
             }
-            $quantity = $request->input('quantity');
 
-     
-            $price = (float) $product->price;
-            $totalPrice = $quantity ? $price * $quantity : $price;
+            $user = Auth::user();
 
-            $cart = new Cart;
+            $cart = new Cart();
+            $cart->user_id = $user->id;
+            $cart->product_id = $product->id;
+            $cart->title = $product->title;
+            $cart->price = $product->price;
+            $cart->image = $product->image;
+            $cart->quantity = 1; // Default quantity
             $cart->name = $user->name;
             $cart->email = $user->email;
             $cart->phone = $user->phone;
             $cart->address = $user->address;
-            $cart->title = $product->title;
-            $cart->price = $totalPrice;
-            $cart->image = $product->image;
-            $cart->product_id = $product->id;
-            $cart->user_id = $user->id;
-            $cart->quantity = $quantity;
             $cart->save();
 
-            return redirect()->back()->with('success', 'Product added to cart successfully');
+            return redirect()->back()->with('success', 'Product added to cart successfully.');
         } else {
             return redirect('login');
         }
