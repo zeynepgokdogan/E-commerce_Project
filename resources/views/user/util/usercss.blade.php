@@ -212,6 +212,7 @@
         border-radius: 15px;
         padding: 20px;
         margin: 40px;
+        margin-top: 150px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         justify-content: space-evenly;
     }
