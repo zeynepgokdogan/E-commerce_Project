@@ -47,14 +47,14 @@ class AdminController extends Controller
 
     public function add_product(Request $request)
     {
-        // Form verilerini doğrulama
         $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string',
+            'description' => 'nullable|string',
             'price' => 'required|numeric',
             'discount' => 'nullable|numeric',
+            'quantity' => 'nullable|integer',
             'category' => 'required|exists:categories,id',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $product = new Products;
@@ -62,6 +62,7 @@ class AdminController extends Controller
         $product->description = $request->description;
         $product->price = $request->price;
         $product->discount_price = $request->discount;
+        $product->quantity = $request->quantity;
         $product->category = $request->category;
 
         if ($request->hasFile('image')) {
@@ -86,6 +87,11 @@ class AdminController extends Controller
         $product = Products::find($id);
 
         if ($product) {
+            // Delete associated image file if it exists
+            if ($product->image && file_exists(public_path('product/' . $product->image))) {
+                unlink(public_path('product/' . $product->image));
+            }
+
             $product->delete();
             return redirect()->back()->with('message', 'Product deleted successfully.');
         }
@@ -104,13 +110,16 @@ class AdminController extends Controller
 
         return redirect()->back()->with('error', 'Product not found.');
     }
+
     public function update_product(Request $request, $id)
     {
+        // Validation rules updated to handle numeric values
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'price' => 'required|numeric',
             'discount' => 'nullable|numeric',
+            'quantity' => 'nullable|integer',
             'category' => 'required|exists:categories,id',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
@@ -125,9 +134,11 @@ class AdminController extends Controller
         $product->description = $request->description;
         $product->price = $request->price;
         $product->discount_price = $request->discount;
-        $product->category = $request->category; 
+        $product->quantity = $request->quantity;
+        $product->category = $request->category;
 
         if ($request->hasFile('image')) {
+            // Delete old image file if it exists
             if ($product->image && file_exists(public_path('product/' . $product->image))) {
                 unlink(public_path('product/' . $product->image));
             }

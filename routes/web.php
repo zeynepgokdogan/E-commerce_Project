@@ -42,6 +42,6 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 
 Route::middleware(['auth', 'user'])->prefix('user')->group(function () {
     Route::get('/products', [UserController::class, 'productsPage'])->name('user.productsPage');
-    Route::get('/products-detail/{id}', [UserController::class, 'productDetailPage'])->name('admin.detailPage');
-
+    Route::get('/products-detail/{id}', [UserController::class, 'productDetailPage'])->name('user.detailPage');
+    Route::post('/add-cart/{id}', [UserController::class, 'add_cart'])->name('add_cart'); // Only POST
 });

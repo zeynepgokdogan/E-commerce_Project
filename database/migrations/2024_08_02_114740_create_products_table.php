@@ -17,8 +17,9 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('image')->nullable();
             $table->string('category')->nullable();
-            $table->string('price')->nullable();
-            $table->string('discount_price')->nullable(); 
+            $table->decimal('price', 10, 2)->nullable(); 
+            $table->decimal('discount_price', 10, 2)->nullable(); 
+            $table->integer('quantity')->nullable(); 
             $table->timestamps();
         });
     }

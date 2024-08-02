@@ -18,6 +18,17 @@
                         <span class="alert-close">&times;</span>
                     </div>
                     @endif
+
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+
                     <div class="div-center">
                         <div class="form-container">
                             <p>ADD PRODUCT</p>
@@ -25,26 +36,27 @@
                             <form action="{{ route('add_product') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <label>Product title</label>
-                                <input type="text" name="title">
+                                <input type="text" name="title" value="{{ old('title') }}">
 
                                 <label>Product Description</label>
-                                <input type="text" name="description">
+                                <input type="text" name="description" value="{{ old('description') }}">
 
-                                <label>Product Price </label>
-                                <input type="text" name="price">
+                                <label>Product Price</label>
+                                <input type="text" name="price" value="{{ old('price') }}">
+
+                                <label>Product Quantity</label>
+                                <input type="text" name="quantity" value="{{ old('quantity') }}">
 
                                 <label>Product Category</label>
                                 <select name="category">
                                     <option value="" selected="">Add category here</option>
-
-                                    @foreach ($category as $category)
-                                    <option value="shirt">{{$category->category_name}}</option>
+                                    @foreach ($category as $cat)
+                                        <option value="{{ $cat->id }}">{{ $cat->category_name }}</option>
                                     @endforeach
-
                                 </select>
 
                                 <label>Discount</label>
-                                <input type="text" name="discount">
+                                <input type="text" name="discount" value="{{ old('discount') }}">
 
                                 <label>Image</label>
                                 <input type="file" name="image">
