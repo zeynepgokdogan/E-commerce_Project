@@ -22,8 +22,7 @@
                         <div class="option_container">
                             <div class="options">
                                 <a href="#" class="option1">Add To Cart</a>
-                                <a href="{{ route('admin.detailPage', ['id' => $data->id]) }}" class="option2">View Details</a>
-
+                                <a href="{{ route('admin.detailPage', ['id' => $myproduct->id]) }}" class="option2">View Details</a>
                             </div>
                         </div>
                         <div class="img-box">
