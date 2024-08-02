@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -10,6 +9,9 @@
 
 <body>
     @include('user.util.header')
+
+    <div id="alert" class="alert"></div>
+
     <div class="detail-container">
         <div class="img-deg">
             <img src="/product/{{$data->image}}" alt="">
@@ -27,22 +29,61 @@
                 <i class="fas fa-star star"></i>
             </div>
             <p class="description">{{$data->description}}</p>
-            <p class="price">{{$data->price}}</p>
-            <button class="add-to-cart">
-                <i class="fas fa-shopping-cart"></i> Add to Cart
-            </button>
+            <p class="price">{{$data->price}} €</p>
+            <form action="{{ route('add_cart', $data->id) }}" method="POST" id="add-to-cart-form">
+                @csrf
+                <button type="submit" class="add-to-cart">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </form>
         </div>
     </div>
 
     <script>
+        function showAlert(message, type) {
+            const alertElement = document.getElementById('alert');
+            alertElement.textContent = message;
+            alertElement.className = 'alert ' + type; // e.g., 'alert success' or 'alert error'
+            alertElement.style.display = 'block';
+            setTimeout(() => {
+                alertElement.style.display = 'none';
+            }, 3000); // Hide after 3 seconds
+        }
+
+        // Handle form submission
+        document.getElementById('add-to-cart-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Use Fetch API to submit the form and handle the response
+            fetch(this.action, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: new URLSearchParams(new FormData(this)).toString()
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showAlert(data.success, 'success');
+                } else if (data.error) {
+                    showAlert(data.error, 'error');
+                }
+            })
+            .catch(error => {
+                showAlert('An error occurred.', 'error');
+            });
+        });
+
         function toggleFavorite() {
             const icon = document.getElementById('favorite-icon');
             icon.classList.toggle('fas');
             icon.classList.toggle('far'); 
             if (icon.classList.contains('fas')) {
-                alert("Added to favorites!");
+                // Handle favorite state
             } else {
-                alert("Removed from favorites!");
+                // Handle unfavorite state
             }
         }
     </script>

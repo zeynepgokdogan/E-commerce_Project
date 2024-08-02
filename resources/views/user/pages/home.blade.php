@@ -12,7 +12,7 @@
       @include('user.util.slider')
       @include('user.util.why')
       @include('user.util.new_arival')
-      @include('user.util.product', ['data' => $data, 'page' => 'home'])
+      @include('user.pages.products', ['data' => $data, 'page' => 'home'])
       @include('user.util.subscribe')
       @include('user.util.client')
    </div>

@@ -3,7 +3,69 @@
         font-family: Figtree, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     }
 
+     .header_section {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        /* Ensure the header is above other content */
+        background-color: #fff;
+        /* Ensure it has a background color */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        /* Optional: add a shadow for better visibility */
+    }
+    /*alert*/
+   
+
+    .alert {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px;
+        border-radius: 5px;
+        z-index: 1000;
+        display: none;
+        width: auto;
+        /* Adjust width */
+        max-width: 80%;
+        /* Limit maximum width */
+        text-align: center;
+        top: 70px;
+        /* Distance from top */
+    }
+
+    .alert.success {
+        background-color: #14abbc;
+        color: #fff;
+    }
+
+    .alert.error {
+        background-color: #EA3C42;
+        color: #fff;
+    }
+
     /* product page */
+    .option1 {
+        font-size: 16px;
+        padding: 10px 20px;
+        border-radius: 18px;
+        background-color: #EA3C42 !important;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border: 1px solid black !important;
+        transition: background-color 0.3s ease;
+
+    }
+
+    .option1:hover {
+        color: black !important;
+    }
+
+    .option2 {
+        background-color: #14ABBC !important;
+    }
 
     .product_section {
         padding: 50px 0;
