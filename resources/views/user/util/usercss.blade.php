@@ -1,5 +1,10 @@
-<!-- product page -->
 <style>
+    body {
+        font-family: Figtree, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    /* product page */
+
     .product_section {
         padding: 50px 0;
     }
@@ -95,7 +100,6 @@
         text-shadow: 0.5px 0.5px 0.5px #000;
     }
 
-
     h6 {
         color: #EA3C42;
         font-size: 17px;
@@ -135,6 +139,111 @@
         color: #ea3c42;
         /* Color for disabled pagination links */
         border: 1px solid #ddd;
+    }
+
+    /* product page */
+
+    .detail-container {
+        display: flex;
+        flex-direction: row;
+        background-color: #f7f8f9;
+        border-radius: 15px;
+        padding: 20px;
+        margin: 40px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        justify-content: space-evenly;
+    }
+
+    .detail-deg {
+        background-color: #e5e8ea;
+        border-radius: 15px;
+        padding: 30px;
+        max-width: 600px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .detail-deg p {
+        margin: 0;
+        padding: 10px 0;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .detail-deg p:last-of-type {
+        border-bottom: none;
+    }
+
+    .img-deg img {
+        margin-left: 30px;
+        width: 450px;
+        height: 650px;
+        border-radius: 10px;
+    }
+
+    .title {
+        font-size: 25px;
+        font-weight: bold;
+        color: #349faa;
+        position: relative;
+        padding-right: 40px;
+    }
+
+    .description {
+        font-size: 20px;
+        margin: 0 0 20px 0;
+    }
+
+    .price {
+        font-size: 22px;
+        color: red;
+        margin: 0;
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    .stars {
+        display: flex;
+        gap: 5px;
+        margin: 10px 0;
+    }
+
+    .star {
+        font-size: 20px;
+        color: gold;
+    }
+
+    .favorite-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 30px;
+        color: red;
+        cursor: pointer;
+    }
+
+    .add-to-cart {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background-color: #349faa;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .add-to-cart i {
+        margin-right: 8px;
+        font-size: 20px;
     }
 </style>
 

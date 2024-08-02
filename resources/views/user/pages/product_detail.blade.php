@@ -1,71 +1,51 @@
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <link rel="stylesheet" type="text/css" href="{{ asset('user/css/style.css') }}" />
     @include('user.util.usercss')
-    <style>
-        .detail-deg {
-            background-color: white;
-            border-radius: 15px;
-            padding: 20px;
-            margin: 40px auto;
-            max-width: 800px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-
-        .img-deg {
-            width: 100%;
-            height: auto;
-            background-size: cover;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        p {
-            color: #937CCB;
-            text-align: center;
-            font-family: 'Righteous', sans-serif;
-            font-style: normal;
-            font-weight: 700;
-            font-size: 30px;
-            line-height: normal;
-
-        }
-
-        h2 {
-            font-size: 1.5em;
-            margin: 0 0 20px 0;
-            text-align: center;
-        }
-
-        h4 {
-            font-size: 1.2em;
-            color: black;
-            margin: 0;
-            padding: 0;
-            position: relative;
-            text-align: right;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
-    <div class="hero_area">
-        @include('user.util.header')
-
-        <div class="detail-deg">
-            <h1>{{$data->title}}</h1>
-            <div class="img-deg">
-                <img src="/product/{{$data->image}}" alt="">
-            </div>
-            <h2>{{$data->description}}</h2>
-            <h4>{{$data->price}}</h4>
+    @include('user.util.header')
+    <div class="detail-container">
+        <div class="img-deg">
+            <img src="/product/{{$data->image}}" alt="">
         </div>
-
+        <div class="detail-deg">
+            <div class="favorite-btn" onclick="toggleFavorite()">
+                <i class="fas fa-heart" id="favorite-icon"></i>
+            </div>
+            <p class="title">{{$data->title}}</p>
+            <div class="stars">
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+                <i class="fas fa-star star"></i>
+            </div>
+            <p class="description">{{$data->description}}</p>
+            <p class="price">{{$data->price}}</p>
+            <button class="add-to-cart">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </div>
     </div>
+
+    <script>
+        function toggleFavorite() {
+            const icon = document.getElementById('favorite-icon');
+            icon.classList.toggle('fas');
+            icon.classList.toggle('far'); 
+            if (icon.classList.contains('fas')) {
+                alert("Added to favorites!");
+            } else {
+                alert("Removed from favorites!");
+            }
+        }
+    </script>
 </body>
 
 </html>
