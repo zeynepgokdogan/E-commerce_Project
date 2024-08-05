@@ -19,7 +19,7 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('/redirect', [HomeController::class, 'redirect'])->name('redirect');
+Route::get('/redirect', [HomeController::class, 'redirect'])->middleware('auth','verified')->name('redirect');
 
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
