@@ -47,5 +47,6 @@ Route::middleware(['auth', 'user'])->prefix('user')->group(function () {
     Route::get('/removecart/{id}', [UserController::class, 'remove_cart'])->name('remove_cart');
 
     Route::get('/cash-on-delivery', [UserController::class, 'cash_on_delivery'])->name('cash_on_delivery');
-    Route::get('/pay-using-card', [UserController::class, 'pay_using_card'])->name('pay_using_card');
+    Route::get('/pay-using-card/{totalprice}', [UserController::class, 'pay_using_card'])->name('pay_using_card');
+    Route::post('/pay-using-card', [UserController::class, 'stripe_post'])->name('stripe_post');
 });

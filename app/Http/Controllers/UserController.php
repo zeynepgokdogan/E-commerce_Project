@@ -8,6 +8,8 @@ use App\Models\Products;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Stripe;
 
 class UserController extends Controller
 {
@@ -115,5 +117,30 @@ class UserController extends Controller
         cart::where('user_id', '=', $userid)->delete();
 
         return redirect()->route('user.cart')->with('success', 'Your order has been placed successfully and is being processed.');
+    }
+
+    public function pay_using_card($totalprice)
+    {
+        return view('user.pages.stripe', compact('totalprice'));
+    }
+
+    public function stripe_post(Request $request)
+    {
+        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
+        try {
+            Stripe\Charge::create([
+                "amount" => $request->amount * 100, // Amount should be in cents
+                "currency" => "usd",
+                "source" => $request->stripeToken,
+                "description" => "Thanks for payment"
+            ]);
+
+            Session::flash('success', 'Payment successful!');
+        } catch (\Exception $e) {
+            Session::flash('error', 'Payment failed: ' . $e->getMessage());
+        }
+
+        return back();
     }
 }

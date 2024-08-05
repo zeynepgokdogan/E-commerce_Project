@@ -2,6 +2,7 @@
 <html>
 
 <head>
+   <title>PrimeTrends -Product Page</title>
    <link rel="stylesheet" type="text/css" href="{{ asset('user/css/style.css') }}" />
    @include('user.util.usercss')
 </head>

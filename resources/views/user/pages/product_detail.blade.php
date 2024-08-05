@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <title>PrimeTrends -Product Detail Page</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('user/css/style.css') }}" />
     @include('user.util.usercss')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">

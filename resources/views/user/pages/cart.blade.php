@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <title>PrimeTrends -Cart</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('user/css/style.css') }}" />
     @include('user.util.usercss')
 </head>
@@ -61,8 +62,12 @@
                     <p><span class="total_label">Total:</span> <span id="total-price" class="total_price">${{
                             number_format($totalprice, 2) }}</span></p>
                     <div class="button-container">
-                        <button class="checkout_button" onclick="window.location.href='{{ route('cash_on_delivery') }}'">Cash On Delivery</button>
-                        <button class="checkout_button" onclick="window.location.href='{{ route('pay_using_card') }}'">Pay Using Card</button>
+                        <button class="checkout_button"
+                            onclick="window.location.href='{{ route('cash_on_delivery') }}'">Cash On Delivery</button>
+                        <button class="checkout_button"
+                            onclick="window.location.href='{{ route('pay_using_card', ['totalprice' => $totalprice]) }}'">Pay
+                            Using Card</button>
+
                     </div>
                 </div>
             </div>
