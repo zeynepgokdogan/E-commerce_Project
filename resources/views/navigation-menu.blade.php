@@ -9,7 +9,7 @@
         .dropdown-link {
             background-color: white;
             color: black !important;
-            font-size: 15px !important;
+            font-size: 17px !important;
         }
 
         .dropdown-link:hover {
@@ -19,9 +19,9 @@
         }
 
         .menu {
-            background-color: white;
+            background-color: #FFFFFF;
             color: black;
-            font-size: 14px;
+            font-size: 19px;
             font-weight: bold;
             height: 40px;
             width: 130px; 

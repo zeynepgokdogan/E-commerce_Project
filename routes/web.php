@@ -43,4 +43,12 @@ Route::middleware(['auth', 'user'])->prefix('user')->group(function () {
     Route::get('/products', [UserController::class, 'productsPage'])->name('user.productsPage');
     Route::get('/products-detail/{id}', [UserController::class, 'productDetailPage'])->name('user.detailPage');
     Route::post('/addcart/{id}', [UserController::class, 'add_cart'])->name('add_cart');
+    Route::get('/viewcart', [UserController::class, 'view_cart'])->name('user.cart');
+    Route::get('/removecart/{id}', [UserController::class, 'remove_cart'])->name('remove_cart');
+
+    Route::get('/cash-on-delivery', [UserController::class, 'cash_on_delivery'])->name('cash_on_delivery');
+    Route::get('/pay-using-card', [UserController::class, 'pay_using_card'])->name('pay_using_card');
+    
+
+
 });

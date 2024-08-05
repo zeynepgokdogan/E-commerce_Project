@@ -3,7 +3,7 @@
         font-family: Figtree, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     }
 
-     .header_section {
+    .header_section {
         position: fixed;
         top: 0;
         left: 0;
@@ -15,8 +15,9 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         /* Optional: add a shadow for better visibility */
     }
+
     /*alert*/
-   
+
 
     .alert {
         position: fixed;
@@ -399,6 +400,128 @@
         .add-to-cart i {
             font-size: 16px;
         }
+    }
+
+    /* CART PAGE */
+    .cart_table {
+        margin-top: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: #fff;
+    }
+
+    .cart_table table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .cart_table th,
+    .cart_table td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .cart_table th {
+        background-color: #f4f4f4;
+    }
+
+    .cart_table .product_info {
+        display: flex;
+        align-items: center;
+    }
+
+    .cart_table .product_info img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        margin-right: 15px;
+    }
+
+    .cart_table .product_info span {
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .quantity_controls {
+        display: flex;
+        align-items: center;
+    }
+
+    .quantity_button {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #ddd;
+        background-color: #14abbc;
+        /* Updated color */
+        color: #fff;
+        /* Text color */
+        border-radius: 50%;
+        /* Circular buttons */
+        cursor: pointer;
+        font-size: 18px;
+        line-height: 1;
+    }
+
+    .quantity_display {
+        width: 40px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #ddd;
+        background-color: #fff;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .remove_button,
+    .checkout_button {
+        padding: 10px 15px;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    .remove_button {
+        background-color: #e74c3c;
+    }
+
+    .checkout_button {
+        background-color: #14abbc;
+        margin-top: 20px;
+    }
+
+    .cart_summary {
+        margin-top: 20px;
+        text-align: right;
+    }
+
+    .cart_summary p {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .cart_summary .total_label {
+        color: black;
+    }
+
+    .cart_summary .total_price {
+        color: red;
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        justify-content: flex-end;
     }
 </style>
 
