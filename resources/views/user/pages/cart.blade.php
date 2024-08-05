@@ -61,23 +61,9 @@
                     <p><span class="total_label">Total:</span> <span id="total-price" class="total_price">${{
                             number_format($totalprice, 2) }}</span></p>
                     <div class="button-container">
-                        <div class="button-container">
-                            <div class="button-container">
-                                <button class="checkout_button">Proceed to
-                                    Checkout</button>
-                                <button class="checkout_button"
-                                    onclick="window.location.href='{{ route('cash_on_delivery') }}'">Cash On
-                                    Delivery</button>
-                                <button class="checkout_button"
-                                    onclick="window.location.href='{{ route('pay_using_card') }}'">Pay Using
-                                    Card</button>
-                            </div>
-
-                        </div>
-
+                        <button class="checkout_button" onclick="window.location.href='{{ route('cash_on_delivery') }}'">Cash On Delivery</button>
+                        <button class="checkout_button" onclick="window.location.href='{{ route('pay_using_card') }}'">Pay Using Card</button>
                     </div>
-
-
                 </div>
             </div>
         </section>
@@ -114,20 +100,32 @@
             });
         });
         updateTotalPrice();
+        
         @if (session('error'))
-    document.addEventListener('DOMContentLoaded', function() {
-        const alertBox = document.getElementById('alert');
-        alertBox.textContent = '{{ session('error') }}';
-        alertBox.classList.add('error');
-        alertBox.style.display = 'block';
+            document.addEventListener('DOMContentLoaded', function() {
+                const alertBox = document.getElementById('alert');
+                alertBox.textContent = '{{ session('error') }}';
+                alertBox.classList.add('error');
+                alertBox.style.display = 'block';
 
-        // Hide the alert after 2 seconds
-        setTimeout(function() {
-            alertBox.style.display = 'none';
-        }, 2000);
-    });
-@endif
+                setTimeout(function() {
+                    alertBox.style.display = 'none';
+                }, 3000);
+            });
+        @endif
 
+        @if (session('success'))
+            document.addEventListener('DOMContentLoaded', function() {
+                const alertBox = document.getElementById('alert');
+                alertBox.textContent = '{{ session('success') }}';
+                alertBox.classList.add('success');
+                alertBox.style.display = 'block';
+
+                setTimeout(function() {
+                    alertBox.style.display = 'none';
+                }, 2000);
+            });
+        @endif
     </script>
 
 </body>

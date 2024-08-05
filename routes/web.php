@@ -48,7 +48,4 @@ Route::middleware(['auth', 'user'])->prefix('user')->group(function () {
 
     Route::get('/cash-on-delivery', [UserController::class, 'cash_on_delivery'])->name('cash_on_delivery');
     Route::get('/pay-using-card', [UserController::class, 'pay_using_card'])->name('pay_using_card');
-    
-
-
 });

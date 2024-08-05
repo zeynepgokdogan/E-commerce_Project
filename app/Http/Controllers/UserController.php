@@ -82,31 +82,38 @@ class UserController extends Controller
         $cart->delete();
         return redirect()->back()->with('error', 'Product removed from cart!');
     }
-
     public function cash_on_delivery()
     {
         $user = Auth::user();
         $userid = $user->id;
 
+        // Check if the cart is empty
         $data = cart::where('user_id', '=', $userid)->get();
-        foreach ($data as $data) {
+        if ($data->isEmpty()) {
+            return redirect()->route('user.cart')->with('error', 'Your cart is empty. Please add items to your cart before placing an order.');
+        }
+
+        foreach ($data as $item) {
             $order = new Order;
-            $order->name = $data->name;
-            $order->email = $data->email;
-            $order->phone = $data->phone;
-            $order->address = $data->address;
-            $order->user_id = $data->user_id;
-            $order->title = $data->title;
-            $order->price = $data->price;
-            $order->quantity = $data->quantity;
-            $order->image = $data->image;
-            $order->product_id = $data->prodct_id;
+            $order->name = $item->name;
+            $order->email = $item->email;
+            $order->phone = $item->phone;
+            $order->address = $item->address;
+            $order->user_id = $item->user_id;
+            $order->title = $item->title;
+            $order->price = $item->price;
+            $order->quantity = $item->quantity;
+            $order->image = $item->image;
+            $order->product_id = $item->product_id;
 
             $order->payment_status = 'Cash On Delivery';
             $order->delivery_status = 'Processing';
             $order->save();
-
         }
-        return redirect()->back();
+
+        // Clear the cart after placing the order
+        cart::where('user_id', '=', $userid)->delete();
+
+        return redirect()->route('user.cart')->with('success', 'Your order has been placed successfully and is being processed.');
     }
 }
