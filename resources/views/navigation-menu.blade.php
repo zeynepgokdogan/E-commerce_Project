@@ -21,7 +21,7 @@
         .menu {
             background-color: #FFFFFF;
             color: black;
-            font-size: 19px;
+            font-size: 16px;
             font-weight: bold;
             height: 40px;
             width: 130px; 
