@@ -1,4 +1,4 @@
-# E-Ticaret Uygulaması (Laravel)
+# E-Ticaret Uygulaması (Laravel & PHP)
 
 Bu proje, Laravel kullanılarak geliştirilmiş bir e-ticaret sistemidir. Kullanıcılar ürünleri favorilere ekleyebilir, sepete ekleyebilir ve alışverişlerini tamamlayabilir. Admin paneli üzerinden ürünler ve siparişler yönetilebilir.
 
