@@ -14,14 +14,14 @@ Bu proje, Laravel kullanılarak geliştirilmiş bir e-ticaret sistemidir. Kullan
 ## Görseller
 
 <div align="center">
-    <img src="https://github.com/user-attachments/assets/53e19995-2c6d-4168-8d31-ea7b0d216eab" width="45%" alt="E-Ticaret 1">
+    <img src="https://github.com/user-attachments/assets/53e19995-2c6d-4168-8d31-ea7b0d216eab" width="50%" alt="E-Ticaret 1">
     <br>
-    <img src="https://github.com/user-attachments/assets/f359858f-93ce-4992-acb5-ddc338376273" width="45%" alt="E-Ticaret 2">
-    <img src="https://github.com/user-attachments/assets/ba68d702-1515-49c4-9e5b-d4555d98d08a" width="45%" alt="E-Ticaret 5">
+    <img src="https://github.com/user-attachments/assets/f359858f-93ce-4992-acb5-ddc338376273" width="50%" alt="E-Ticaret 2">
+    <img src="https://github.com/user-attachments/assets/dd6d8059-e839-4541-af78-89eeb640fae6" width="50%" alt="E-Ticaret 4">
     <br>
-    <img src="https://github.com/user-attachments/assets/dd6d8059-e839-4541-af78-89eeb640fae6" width="45%" alt="E-Ticaret 4">
-    <img src="https://github.com/user-attachments/assets/9897adaa-623b-4ad1-9d9d-8b2a495ce63d" width="45%" alt="E-Ticaret 6">
+    <img src="https://github.com/user-attachments/assets/ba68d702-1515-49c4-9e5b-d4555d98d08a" width="50%" alt="E-Ticaret 5">
+    <img src="https://github.com/user-attachments/assets/9897adaa-623b-4ad1-9d9d-8b2a495ce63d" width="50%" alt="E-Ticaret 6">
     <br>
-    <img src="https://github.com/user-attachments/assets/6056838a-ba0f-46af-ab15-ea0632f407de" width="45%" alt="E-Ticaret 7">
-    <img src="https://github.com/user-attachments/assets/f528fc21-2825-439e-aa8c-1286759c409b" width="45%" alt="E-Ticaret 8">
+    <img src="https://github.com/user-attachments/assets/6056838a-ba0f-46af-ab15-ea0632f407de" width="50%" alt="E-Ticaret 7">
+    <img src="https://github.com/user-attachments/assets/f528fc21-2825-439e-aa8c-1286759c409b" width="50%" alt="E-Ticaret 8">
 </div>
